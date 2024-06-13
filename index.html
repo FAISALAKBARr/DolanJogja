@@ -15,258 +15,390 @@
         }
 
         .info {
-    padding: 6px 8px;
-    font: 14px/16px Arial, Helvetica, sans-serif;
-    background: white;
-    background: rgba(255,255,255,0.8);
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    border-radius: 5px;
-}
-.info h4 {
-    margin: 0 0 5px;
-    color: #777;
-}
+            padding: 6px 8px;
+            font: 14px/16px Arial, Helvetica, sans-serif;
+            background: white;
+            background: rgba(255,255,255,0.8);
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            border-radius: 5px;
+        }
 
-.legend {
-    line-height: 18px;
-    color: #555;
-}
-.legend i {
-    width: 18px;
-    height: 18px;
-    float: left;
-    margin-right: 8px;
-    opacity: 0.7;
-}
+        .info h4 {
+            margin: 0 0 5px;
+            color: #777;
+        }
 
+        .legend {
+            line-height: 18px;
+            color: #555;
+        }
 
+        .legend i {
+            width: 18px;
+            height: 18px;
+            float: left;
+            margin-right: 8px;
+            opacity: 0.7;
+        }
+
+        .control-panel {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+
+        .control-panel input {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 0;
+        }
+
+        .control-panel button {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 0;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
     </style>
-
 </head>
 <body>
     <div id="map"></div>
+    <div class="control-panel">
+        <input type="text" id="start-point" placeholder="Start Point (lat,lng)">
+        <input type="text" id="end-point" placeholder="End Point (lat,lng)">
+        <button onclick="performSearch()">Search Route</button>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <script src="./data/line.js"></script>
+    <script src="./data/point.js"></script>
+    <script src="./data/polygon.js"></script>
+    <script src="./data/nepaldata.js"></script>
+    <script src="./data/usstates.js"></script>
+    <script>
+        /*===================================================
+                          OSM  LAYER               
+        ===================================================*/
+
+        var map = L.map('map').setView([40.7128,-74.0060], 4);
+        var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        });
+        osm.addTo(map);
+
+        /*===================================================
+                          MARKER               
+        ===================================================*/
+
+        var singleMarker = L.marker([28.25255, 83.97669]);
+        singleMarker.addTo(map);
+        var popup = singleMarker.bindPopup('This is a popup');
+        popup.addTo(map);
+
+        /*===================================================
+                         TILE LAYER               
+        ===================================================*/
+
+        var CartoDB_DarkMatter = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+            subdomains: 'abcd',
+            maxZoom: 19
+        });
+        CartoDB_DarkMatter.addTo(map);
+
+        // Google Map Layer
+        var googleStreets = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains:['mt0','mt1','mt2','mt3']
+        });
+        googleStreets.addTo(map);
+
+        // Satellite Layer
+        var googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains:['mt0','mt1','mt2','mt3']
+        });
+        googleSat.addTo(map);
+
+        var Stamen_Watercolor = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}', {
+            attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            subdomains: 'abcd',
+            minZoom: 1,
+            maxZoom: 16,
+            ext: 'jpg'
+        });
+        Stamen_Watercolor.addTo(map);
+
+        /*===================================================
+                          GEOJSON               
+        ===================================================*/
+
+        var linedata = L.geoJSON(lineJSON).addTo(map);
+        var pointdata = L.geoJSON(pointJSON).addTo(map);
+        var nepalData = L.geoJSON(nepaldataa).addTo(map);
+        var polygondata = L.geoJSON(polygonJSON, {
+            onEachFeature: function(feature, layer) {
+                layer.bindPopup('<b>This is a </b>' + feature.properties.name)
+            },
+            style: {
+                fillColor: 'red',
+                fillOpacity: 1,
+                color: 'green'
+            }
+        }).addTo(map);
+
+        /*===================================================
+                          LAYER CONTROL               
+        ===================================================*/
+
+        var baseLayers = {
+            "Satellite": googleSat,
+            "Google Map": googleStreets,
+            "Water Color": Stamen_Watercolor,
+            "OpenStreetMap": osm,
+        };
+
+        var overlays = {
+            "Marker": singleMarker,
+            "PointData": pointdata,
+            "LineData": linedata,
+            "PolygonData": polygondata
+        };
+
+        L.control.layers(baseLayers, overlays).addTo(map);
+
+        /*===================================================
+                          SEARCH BUTTON               
+        ===================================================*/
+
+        L.Control.geocoder().addTo(map);
+
+        /*===================================================
+                          Choropleth Map               
+        ===================================================*/
+
+        L.geoJSON(statesData).addTo(map);
+
+        function getColor(d) {
+            return d > 1000 ? '#800026' :
+                   d > 500  ? '#BD0026' :
+                   d > 200  ? '#E31A1C' :
+                   d > 100  ? '#FC4E2A' :
+                   d > 50   ? '#FD8D3C' :
+                   d > 20   ? '#FEB24C' :
+                   d > 10   ? '#FED976' :
+                              '#FFEDA0';
+        }
+
+        function style(feature) {
+            return {
+                fillColor: getColor(feature.properties.density),
+                weight: 2,
+                opacity: 1,
+                color: 'white',
+                dashArray: '3',
+                fillOpacity: 0.7
+            };
+        }
+
+        L.geoJson(statesData, { style: style }).addTo(map);
+
+        function highlightFeature(e) {
+            var layer = e.target;
+
+            layer.setStyle({
+                weight: 5,
+                color: '#666',
+                dashArray: '',
+                fillOpacity: 0.7
+            });
+
+            if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+                layer.bringToFront();
+            }
+
+            info.update(layer.feature.properties);
+        }
+
+        function resetHighlight(e) {
+            geojson.resetStyle(e.target);
+            info.update();
+        }
+
+        var geojson;
+        // ... our listeners
+        geojson = L.geoJson(statesData);
+
+        function zoomToFeature(e) {
+            map.fitBounds(e.target.getBounds());
+        }
+
+        function onEachFeature(feature, layer) {
+            layer.on({
+                mouseover: highlightFeature,
+                mouseout: resetHighlight,
+                click: zoomToFeature
+            });
+        }
+
+        geojson = L.geoJson(statesData, {
+            style: style,
+            onEachFeature: onEachFeature
+        }).addTo(map);
+
+        var info = L.control();
+
+        info.onAdd = function (map) {
+            this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+            this.update();
+            return this._div;
+        };
+
+        // method that we will use to update the control based on feature properties passed
+        info.update = function (props) {
+            this._div.innerHTML = '<h4>US Population Density</h4>' +  (props ?
+                '<b>' + props.name + '</b><br />' + props.density + ' people / mi<sup>2</sup>'
+                : 'Hover over a state');
+        };
+
+        info.addTo(map);
+
+        var legend = L.control({ position: 'bottomright' });
+
+        legend.onAdd = function (map) {
+            var div = L.DomUtil.create('div', 'info legend'),
+                grades = [0, 10, 20, 50, 100, 200, 500, 1000],
+                labels = [];
+
+            // loop through our density intervals and generate a label with a colored square for each interval
+            for (var i = 0; i < grades.length; i++) {
+                div.innerHTML +=
+                    '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+                    grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+            }
+
+            return div;
+        };
+
+        legend.addTo(map);
+
+        /*===================================================
+                          A* Algorithm
+        ===================================================*/
+
+        function heuristic(a, b) {
+            var lat1 = a.lat, lon1 = a.lng;
+            var lat2 = b.lat, lon2 = b.lng;
+            var R = 6371; // Radius of the Earth in km
+            var dLat = (lat2 - lat1) * Math.PI / 180;
+            var dLon = (lon2 - lon1) * Math.PI / 180;
+            var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                    Math.sin(dLon/2) * Math.sin(dLon/2);
+            var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+            return R * c;
+        }
+
+        function aStarSearch(start, end, graph) {
+            var openSet = [start];
+            var cameFrom = new Map();
+            var gScore = new Map();
+            var fScore = new Map();
+
+            gScore.set(start, 0);
+            fScore.set(start, heuristic(start, end));
+
+            while (openSet.length > 0) {
+                var current = openSet.reduce((a, b) => fScore.get(a) < fScore.get(b) ? a : b);
+
+                if (current.lat === end.lat && current.lng === end.lng) {
+                    var total_path = [current];
+                    while (cameFrom.has(current)) {
+                        current = cameFrom.get(current);
+                        total_path.push(current);
+                    }
+                    return total_path.reverse();
+                }
+
+                openSet = openSet.filter(item => item !== current);
+
+                graph.getNeighbors(current).forEach(neighbor => {
+                    var tentative_gScore = gScore.get(current) + heuristic(current, neighbor);
+
+                    if (!gScore.has(neighbor) || tentative_gScore < gScore.get(neighbor)) {
+                        cameFrom.set(neighbor, current);
+                        gScore.set(neighbor, tentative_gScore);
+                        fScore.set(neighbor, gScore.get(neighbor) + heuristic(neighbor, end));
+                        if (!openSet.includes(neighbor)) {
+                            openSet.push(neighbor);
+                        }
+                    }
+                });
+            }
+
+            return []; // Return an empty array if no path is found
+        }
+
+        function performSearch() {
+            var startInput = document.getElementById('start-point').value;
+            var endInput = document.getElementById('end-point').value;
+
+            if (!startInput || !endInput) {
+                alert('Please enter both start and end points.');
+                return;
+            }
+
+            var startCoords = startInput.split(',').map(Number);
+            var endCoords = endInput.split(',').map(Number);
+
+            if (startCoords.length !== 2 || endCoords.length !== 2) {
+                alert('Invalid input format. Please use the format "lat,lng".');
+                return;
+            }
+
+            var start = { lat: startCoords[0], lng: startCoords[1] };
+            var end = { lat: endCoords[0], lng: endCoords[1] };
+
+            // Assuming `graph` is a predefined graph representing the map
+            var graph = {
+                getNeighbors: function(node) {
+                    // Daftar tetangga (harus disesuaikan dengan data graf Anda)
+                    var neighbors = [
+                        { lat: 40.730610, lng: -73.935242 }, // Contoh tetangga 1 (New York)
+                        { lat: 41.878113, lng: -87.629799 }, // Contoh tetangga 2 (Chicago)
+                        { lat: 34.052235, lng: -118.243683 }, // Contoh tetangga 3 (Los Angeles)
+                        // Tambahkan lebih banyak tetangga sesuai dengan data graf Anda
+                    ];
+                
+                    // Filter tetangga berdasarkan jarak (misalnya dalam radius 500 km)
+                    return neighbors.filter(neighbor => {
+                        var distance = heuristic(node, neighbor);
+                        return distance < 500; // Radius dalam km
+                    });
+                }
+            };
+
+            var path = aStarSearch(start, end, graph);
+
+            if (path.length === 0) {
+                alert('No path found.');
+                return;
+            }
+
+            var latlngs = path.map(node => [node.lat, node.lng]);
+            var polyline = L.polyline(latlngs, { color: 'blue' }).addTo(map);
+            map.fitBounds(polyline.getBounds());
+        }
+    </script>
 </body>
 </html>
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-<script src="./data/line.js"></script>
-<script src="./data/point.js"></script>
-<script src="./data/polygon.js"></script>
-<script src="./data/nepaldata.js"></script>
-<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
-<script src="./data/usstates.js"></script>
-<script>
-
-    /*===================================================
-                      OSM  LAYER               
-===================================================*/
-
-    var map = L.map('map').setView([40.7128,-74.0060], 4);
-var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-});
-osm.addTo(map);
-
-/*===================================================
-                      MARKER               
-===================================================*/
-
-var singleMarker = L.marker([28.25255,83.97669]);
-singleMarker.addTo(map);
-var popup = singleMarker.bindPopup('This is a popup')
-popup.addTo(map);
-
-/*===================================================
-                     TILE LAYER               
-===================================================*/
-
-var CartoDB_DarkMatter = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-subdomains: 'abcd',
-	maxZoom: 19
-});
-CartoDB_DarkMatter.addTo(map);
-
-// Google Map Layer
-
-googleStreets = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
-    maxZoom: 20,
-    subdomains:['mt0','mt1','mt2','mt3']
- });
- googleStreets.addTo(map);
-
- // Satelite Layer
-googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
-   maxZoom: 20,
-   subdomains:['mt0','mt1','mt2','mt3']
- });
-googleSat.addTo(map);
-
-var Stamen_Watercolor = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}', {
- attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-subdomains: 'abcd',
-minZoom: 1,
-maxZoom: 16,
-ext: 'jpg'
-});
-Stamen_Watercolor.addTo(map);
-
-
-/*===================================================
-                      GEOJSON               
-===================================================*/
-
-var linedata = L.geoJSON(lineJSON).addTo(map);
-var pointdata = L.geoJSON(pointJSON).addTo(map);
-var nepalData = L.geoJSON(nepaldataa).addTo(map);
-var polygondata = L.geoJSON(polygonJSON,{
-    onEachFeature: function(feature,layer){
-        layer.bindPopup('<b>This is a </b>' + feature.properties.name)
-    },
-    style:{
-        fillColor: 'red',
-        fillOpacity:1,
-        color: 'green'
-    }
-}).addTo(map);
-
-/*===================================================
-                      LAYER CONTROL               
-===================================================*/
-
-var baseLayers = {
-    "Satellite":googleSat,
-    "Google Map":googleStreets,
-    "Water Color":Stamen_Watercolor,
-    "OpenStreetMap": osm,
-};
-
-var overlays = {
-    "Marker": singleMarker,
-    "PointData":pointdata,
-    "LineData":linedata,
-    "PolygonData":polygondata
-};
-
-L.control.layers(baseLayers, overlays).addTo(map);
-
-
-/*===================================================
-                      SEARCH BUTTON               
-===================================================*/
-
-L.Control.geocoder().addTo(map);
-
-
-/*===================================================
-                      Choropleth Map               
-===================================================*/
-
-L.geoJSON(statesData).addTo(map);
-
-
-function getColor(d) {
-    return d > 1000 ? '#800026' :
-           d > 500  ? '#BD0026' :
-           d > 200  ? '#E31A1C' :
-           d > 100  ? '#FC4E2A' :
-           d > 50   ? '#FD8D3C' :
-           d > 20   ? '#FEB24C' :
-           d > 10   ? '#FED976' :
-                      '#FFEDA0';
-}
-
-function style(feature) {
-    return {
-        fillColor: getColor(feature.properties.density),
-        weight: 2,
-        opacity: 1,
-        color: 'white',
-        dashArray: '3',
-        fillOpacity: 0.7
-    };
-}
-
-L.geoJson(statesData, {style: style}).addTo(map);
-
-function highlightFeature(e) {
-    var layer = e.target;
-
-    layer.setStyle({
-        weight: 5,
-        color: '#666',
-        dashArray: '',
-        fillOpacity: 0.7
-    });
-
-    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-        layer.bringToFront();
-    }
-
-    info.update(layer.feature.properties);
-}
-
-function resetHighlight(e) {
-    geojson.resetStyle(e.target);
-    info.update();
-}
-
-var geojson;
-// ... our listeners
-geojson = L.geoJson(statesData);
-
-function zoomToFeature(e) {
-    map.fitBounds(e.target.getBounds());
-}
-
-function onEachFeature(feature, layer) {
-    layer.on({
-        mouseover: highlightFeature,
-        mouseout: resetHighlight,
-        click: zoomToFeature
-    });
-}
-
-geojson = L.geoJson(statesData, {
-    style: style,
-    onEachFeature: onEachFeature
-}).addTo(map);
-
-var info = L.control();
-
-info.onAdd = function (map) {
-    this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
-    this.update();
-    return this._div;
-};
-
-// method that we will use to update the control based on feature properties passed
-info.update = function (props) {
-    this._div.innerHTML = '<h4>US Population Density</h4>' +  (props ?
-        '<b>' + props.name + '</b><br />' + props.density + ' people / mi<sup>2</sup>'
-        : 'Hover over a state');
-};
-
-info.addTo(map);
-
-var legend = L.control({position: 'bottomright'});
-
-legend.onAdd = function (map) {
-
-    var div = L.DomUtil.create('div', 'info legend'),
-        grades = [0, 10, 20, 50, 100, 200, 500, 1000],
-        labels = [];
-
-    // loop through our density intervals and generate a label with a colored square for each interval
-    for (var i = 0; i < grades.length; i++) {
-        div.innerHTML +=
-            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
-            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
-    }
-
-    return div;
-};
-
-legend.addTo(map);
-
-
-</script>
