@@ -2,10 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dolan Jogja</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <!-- Tambahan link stylesheet dan libraries yang diperlukan -->
+    <link rel="stylesheet" type="text/css" href="styles.css" />
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
@@ -17,12 +17,24 @@
     <link rel="icon" href="img/favicon.png" type="image/png" />
   </head>
   <body>
+    <!-- Search Bar untuk Lokasi Awal -->
+    <input type="text" id="startInput" placeholder="Masukkan Lokasi Awal" />
+
+    <!-- Search Bar untuk Lokasi Tujuan -->
+    <input type="text" id="endInput" placeholder="Masukkan Lokasi Tujuan" />
+
+    <!-- Tombol untuk Memulai Pencarian Rute -->
+    <button id="cariRuteBtn">Cari Rute</button>
+
+    <!-- Div untuk Menampilkan Peta -->
     <div id="map"></div>
+
+    <!-- Javascript -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="./data/line.js"></script>
+    <script src="./data/point.js"></script>
+    <script src="./data/polygon.js"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <script src="jogja.js"></script>
   </body>
 </html>
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-<script src="./data/line.js"></script>
-<script src="./data/point.js"></script>
-<script src="./data/polygon.js"></script>
-<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
-<script src="jogja.js"></script>

@@ -98,30 +98,28 @@ transJogjaStops.forEach(function (stop) {
 });
 
 var tempatWisata = [
-  { name: "Malioboro", coords: [-7.792354, 110.365785] },
-  { name: "Tugu Station", coords: [-7.789307, 110.363005] },
   { name: "Kridosono Stadium", coords: [-7.782903, 110.375475] },
   {
-    name: "Keraton Yogyakarta Keraton Ngayogyakarta Hadiningrat",
+    name: "Keraton Yogyakarta",
     coords: [-7.806721, 110.364839],
   },
-  { name: "Taman Sari Taman Sari", coords: [-7.81058, 110.35841] },
+  { name: "Taman Sari", coords: [-7.81058, 110.35841] },
   {
-    name: "Museum Benteng Vredeburg Vredeburg Museum",
+    name: "Museum Benteng Vredeburg",
     coords: [-7.80054, 110.36709],
   },
-  { name: "Malioboro Malioboro Yogyakarta", coords: [-7.792354, 110.365785] },
+  { name: "Malioboro", coords: [-7.792354, 110.365785] },
   {
-    name: "Taman Pintar Taman Pintar Yogyakarta",
+    name: "Taman Pintar",
     coords: [-7.801438, 110.366778],
   },
   {
-    name: "Museum Sonobudoyo Museum Sonobudoyo Unit I",
+    name: "Museum Sonobudoyo",
     coords: [-7.801822, 110.363849],
   },
-  { name: "Candi Prambanan Prambanan Temple", coords: [-7.75202, 110.4928] },
+  { name: "Candi Prambanan", coords: [-7.75202, 110.4928] },
   {
-    name: "Alun-Alun Kidul Bringin Kembar Yogyakarta",
+    name: "Alun-Alun Kidul",
     coords: [-7.813336, 110.360953],
   },
   {
@@ -129,65 +127,65 @@ var tempatWisata = [
     coords: [-7.798888, 110.367335],
   },
   {
-    name: "Jogja National Museum Jogja National Museum",
+    name: "Jogja National Museum ",
     coords: [-7.803971, 110.360091],
   },
   {
-    name: "De Mata Trick Eye Museum De Mata Trick Eye Museum",
+    name: "De Mata Trick Eye Museum",
     coords: [-7.810152, 110.37655],
   },
   {
-    name: "Situs Warungboto Situs Warungboto",
+    name: "Situs Warungboto",
     coords: [-7.802642, 110.388428],
   },
-  { name: "Tugu Jogja Yogyakarta Monument", coords: [-7.782885, 110.367075] },
+  { name: "Tugu Jogja", coords: [-7.782885, 110.367075] },
   { name: "Stasiun Jogja Yogyakarta", coords: [-7.789228, 110.363091] },
   {
-    name: "Bandara Adisutjipto Adisutjipto Airport",
+    name: "Bandara Adisutjipto",
     coords: [-7.788965, 110.432026],
   },
-  { name: "Ambarukmo Mall Ambarrukmo Plaza", coords: [-7.782716, 110.408844] },
+  { name: "Ambarukmo Mall", coords: [-7.782716, 110.408844] },
   {
-    name: "Jogja Night Tours Yogyakarta Night Tours - Meeting Point Klasik : Historical Walking and Food Tour",
+    name: "Jogja Night Tour",
     coords: [-7.797068, 110.370529],
   },
   {
-    name: "Kebun Binatang Gembira Loka Gembira Loka Zoo",
+    name: "Kebun Binatang Gembira Loka",
     coords: [-7.792917, 110.397116],
   },
-  { name: "Pakuwon Mall Pakuwon Mall Jogja", coords: [-7.760072, 110.374233] },
+  { name: "Pakuwon Mall", coords: [-7.760072, 110.374233] },
   {
-    name: "Jogja Exotarium Mini Zoo Jogja Exotarium Mini Zoo",
+    name: "Jogja Exotarium Mini Zoo",
     coords: [-7.75217, 110.314962],
   },
-  { name: "Sleman City Hall Sleman City Hall", coords: [-7.73373, 110.360134] },
+  { name: "Sleman City Hall", coords: [-7.73373, 110.360134] },
   {
-    name: "Museum Pusat TNI AU Dirgantara Central Museum of the Air Force Dirgantara Mandala",
+    name: "Museum Pusat TNI AU Dirgantara",
     coords: [-7.787945, 110.432526],
   },
   {
-    name: "Mrican Boat and Fishing Spot Mrican Boat and Fishing Spot",
+    name: "Mrican Boat and Fishing Spot",
     coords: [-7.779504, 110.417744],
   },
   {
-    name: "Sindu Kusuma Edupark Sindu Kusuma Edupark (SKE)",
+    name: "Sindu Kusuma Edupark",
     coords: [-7.761553, 110.350289],
   },
-  { name: "Jogja City Mall Jogja City Mall", coords: [-7.752974, 110.366159] },
-  { name: "Galleria Mall Galeria Mall", coords: [-7.782399, 110.38075] },
+  { name: "Jogja City Mall", coords: [-7.752974, 110.366159] },
+  { name: "Galleria Mall", coords: [-7.782399, 110.38075] },
   {
-    name: "Museum Omah Jayeng Museum Omah Jayeng ꧋ꦩꦸꦱꦺꦪꦸꦩ꧀ꦎꦩꦃꦗꦪꦺꦁ",
+    name: "Museum Omah Jayeng",
     coords: [-7.802362, 110.359275],
   },
-  { name: "Museum Sandi Museum Sandi", coords: [-7.782509, 110.375173] },
-  { name: "Museum Affandi Affandi Museum", coords: [-7.782923, 110.398239] },
+  { name: "Museum Sandi", coords: [-7.782509, 110.375173] },
+  { name: "Museum Affandi", coords: [-7.782923, 110.398239] },
   {
-    name: "Museum Sejarah Jawa History Of Java Museum (HOJM)",
+    name: "Museum Sejarah Jawa",
     coords: [-7.834846, 110.368321],
   },
-  { name: "Stasiun Lempuyangan Lempuyangan", coords: [-7.789787, 110.377669] },
-  { name: "Stasiun Maguwo Stasiun Maguwo", coords: [-7.789865, 110.436056] },
-  { name: "Senyum Tamanan Senyum Tamanan", coords: [-7.831691, 110.366522] },
+  { name: "Stasiun Lempuyangan", coords: [-7.789787, 110.377669] },
+  { name: "Stasiun Maguwo", coords: [-7.789865, 110.436056] },
+  { name: "Senyum Tamanan", coords: [-7.831691, 110.366522] },
 ];
 
 tempatWisata.forEach(function (tempat) {
@@ -1540,3 +1538,101 @@ L.control.layers(baseLayers, overlays).addTo(map);
       ===================================================*/
 
 L.Control.geocoder().addTo(map);
+
+// Fungsi A* untuk mencari rute tercepat
+function aStar(start, end, graf) {
+  // Set variabel node awal dan node akhir
+  const startNode = graf[start];
+  const endNode = graf[end];
+
+  // Inisialisasi openSet dan closedSet
+  let openSet = [startNode];
+  const closedSet = [];
+
+  // Inisialisasi gScore dan fScore
+  const gScore = {};
+  const fScore = {};
+  Object.keys(graf).forEach((node) => {
+    gScore[node] = Infinity;
+    fScore[node] = Infinity;
+  });
+  gScore[start] = 0;
+  fScore[start] = heuristic(startNode, endNode);
+
+  while (openSet.length > 0) {
+    // Ambil node dengan fScore terendah dari openSet
+    const current = getLowestFScoreNode(openSet, fScore);
+
+    if (current === end) {
+      return reconstructPath(graf, start, end);
+    }
+
+    // Hapus current dari openSet dan tambahkan ke closedSet
+    openSet = openSet.filter((node) => node !== current);
+    closedSet.push(current);
+
+    // Iterasi melalui tetangga-tetangga current
+    Object.keys(graf[current].neighbors).forEach((neighbor) => {
+      if (closedSet.includes(neighbor)) {
+        return; // Skip jika neighbor sudah di closedSet
+      }
+
+      // Hitung gScore baru
+      const tentativeGScore =
+        gScore[current] + graf[current].neighbors[neighbor];
+
+      if (!openSet.includes(neighbor)) {
+        openSet.push(neighbor); // Tambahkan neighbor ke openSet jika belum ada
+      } else if (tentativeGScore >= gScore[neighbor]) {
+        return; // Skip jika ini bukan rute terbaik
+      }
+
+      // Update nilai gScore dan fScore neighbor
+      gScore[neighbor] = tentativeGScore;
+      fScore[neighbor] = gScore[neighbor] + heuristic(graf[neighbor], endNode);
+    });
+  }
+
+  return null; // Jika tidak ditemukan rute
+}
+
+// Fungsi heuristik (misalnya menggunakan jarak Euclidean)
+function heuristic(nodeA, nodeB) {
+  const dx = nodeB.coords[0] - nodeA.coords[0];
+  const dy = nodeB.coords[1] - nodeA.coords[1];
+  return Math.sqrt(dx * dx + dy * dy);
+}
+
+// Fungsi untuk mendapatkan node dengan fScore terendah dari openSet
+function getLowestFScoreNode(openSet, fScore) {
+  let lowestNode = openSet[0];
+  openSet.forEach((node) => {
+    if (fScore[node] < fScore[lowestNode]) {
+      lowestNode = node;
+    }
+  });
+  return lowestNode;
+}
+
+// Fungsi untuk merekonstruksi path dari start ke end
+function reconstructPath(graf, start, end) {
+  const path = [end];
+  let current = end;
+  while (current !== start) {
+    current = graf[current].cameFrom;
+    path.unshift(current);
+  }
+  return path;
+}
+
+function tampilkanRute(rute) {
+  L.polyline(rute, { color: "blue" }).addTo(map);
+}
+
+// Event listener untuk tombol pencarian rute
+document.getElementById("cariRuteBtn").addEventListener("click", function () {
+  const start = document.getElementById("startInput").value; // Ambil lokasi awal dari input
+  const end = document.getElementById("endInput").value; // Ambil lokasi tujuan dari input
+  const ruteTerdekat = aStar(start, end, grafTransjogja); // Hitung rute terdekat menggunakan A*
+  tampilkanRute(ruteTerdekat); // Tampilkan rute terdekat pada peta
+});
