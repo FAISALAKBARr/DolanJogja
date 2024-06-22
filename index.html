@@ -57,7 +57,7 @@
 <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
 <script>
   /*===================================================
-                      OSM  LAYER               
+                      OSM  LAYER
     ===================================================*/
 
   var map = L.map("map").setView([-7.797068, 110.370529], 13); // Centered on Yogyakarta
@@ -68,156 +68,11 @@
   osm.addTo(map);
 
   /*===================================================
-                        MARKER               
+                        MARKER
     ===================================================*/
 
   // Example marker for a TransJogja bus stop
   var transJogjaStops = [
-    {
-      name: "Malioboro",
-      coords: [-7.792354, 110.365785],
-    },
-    {
-      name: "Tugu Station",
-      coords: [-7.789307, 110.363005],
-    },
-    {
-      name: "Kridosono Stadium",
-      coords: [-7.782903, 110.375475],
-    },
-    {
-      name: "Keraton Yogyakarta Keraton Ngayogyakarta Hadiningrat",
-      coords: [-7.806721, 110.364839],
-    },
-    {
-      name: "Taman Sari Taman Sari",
-      coords: [-7.81058, 110.35841],
-    },
-    {
-      name: "Museum Benteng Vredeburg Vredeburg Museum",
-      coords: [-7.80054, 110.36709],
-    },
-    {
-      name: "Malioboro Malioboro Yogyakarta",
-      coords: [-7.792354, 110.365785],
-    },
-    {
-      name: "Taman Pintar Taman Pintar Yogyakarta",
-      coords: [-7.801438, 110.366778],
-    },
-    {
-      name: "Museum Sonobudoyo Museum Sonobudoyo Unit I",
-      coords: [-7.801822, 110.363849],
-    },
-    {
-      name: "Candi Prambanan Prambanan Temple",
-      coords: [-7.75202, 110.4928],
-    },
-    {
-      name: "Alun-Alun Kidul Bringin Kembar Yogyakarta",
-      coords: [-7.813336, 110.360953],
-    },
-    {
-      name: "Pasar Beringharjo Beringharjo Market",
-      coords: [-7.798888, 110.367335],
-    },
-    {
-      name: "Jogja National Museum Jogja National Museum",
-      coords: [-7.803971, 110.360091],
-    },
-    {
-      name: "De Mata Trick Eye Museum De Mata Trick Eye Museum",
-      coords: [-7.810152, 110.37655],
-    },
-    {
-      name: "Situs Warungboto Situs Warungboto",
-      coords: [-7.802642, 110.388428],
-    },
-    {
-      name: "Tugu Jogja Yogyakarta Monument",
-      coords: [-7.782885, 110.367075],
-    },
-    {
-      name: "Stasiun Jogja Yogyakarta",
-      coords: [-7.789228, 110.363091],
-    },
-    {
-      name: "Bandara Adisutjipto Adisutjipto Airport",
-      coords: [-7.788965, 110.432026],
-    },
-    {
-      name: "Ambarukmo Mall Ambarrukmo Plaza",
-      coords: [-7.782716, 110.408844],
-    },
-    {
-      name: "Jogja Night Tours Yogyakarta Night Tours - Meeting Point Klasik : Historical Walking and Food Tour",
-      coords: [-7.797068, 110.370529],
-    },
-    {
-      name: "Kebun Binatang Gembira Loka Gembira Loka Zoo",
-      coords: [-7.792917, 110.397116],
-    },
-    {
-      name: "Pakuwon Mall Pakuwon Mall Jogja",
-      coords: [-7.760072, 110.374233],
-    },
-    {
-      name: "Jogja Exotarium Mini Zoo Jogja Exotarium Mini Zoo",
-      coords: [-7.75217, 110.314962],
-    },
-    {
-      name: "Sleman City Hall Sleman City Hall",
-      coords: [-7.73373, 110.360134],
-    },
-    {
-      name: "Museum Pusat TNI AU Dirgantara Central Museum of the Air Force Dirgantara Mandala",
-      coords: [-7.787945, 110.432526],
-    },
-    {
-      name: "Mrican Boat and Fishing Spot Mrican Boat and Fishing Spot",
-      coords: [-7.779504, 110.417744],
-    },
-    {
-      name: "Sindu Kusuma Edupark Sindu Kusuma Edupark (SKE)",
-      coords: [-7.761553, 110.350289],
-    },
-    {
-      name: "Jogja City Mall Jogja City Mall",
-      coords: [-7.752974, 110.366159],
-    },
-    {
-      name: "Galleria Mall Galeria Mall",
-      coords: [-7.782399, 110.38075],
-    },
-    {
-      name: "Museum Omah Jayeng Museum Omah Jayeng ꧋ꦩꦸꦱꦺꦪꦸꦩ꧀ꦎꦩꦃꦗꦪꦺꦁ",
-      coords: [-7.802362, 110.359275],
-    },
-    {
-      name: "Museum Sandi Museum Sandi",
-      coords: [-7.782509, 110.375173],
-    },
-    {
-      name: "Museum Affandi Affandi Museum",
-      coords: [-7.782923, 110.398239],
-    },
-    {
-      name: "Museum Sejarah Jawa History Of Java Museum (HOJM)",
-      coords: [-7.834846, 110.368321],
-    },
-    {
-      name: "Stasiun Lempuyangan Lempuyangan",
-      coords: [-7.789787, 110.377669],
-    },
-    {
-      name: "Stasiun Maguwo Stasiun Maguwo",
-      coords: [-7.789865, 110.436056],
-    },
-    {
-      name: "Senyum Tamanan Senyum Tamanan",
-      coords: [-7.831691, 110.366522],
-    },
-
     {
       name: "Halte Alfa (Transmart)",
       coords: [-7.7829, 110.3757],
@@ -473,12 +328,182 @@
   ];
 
   transJogjaStops.forEach(function (stop) {
-    var marker = L.marker(stop.coords).addTo(map);
+    var redMarker = L.icon({
+      iconUrl:
+        "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png",
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
+      shadowSize: [41, 41],
+    });
+
+    var marker = L.marker(stop.coords, { icon: redMarker }).addTo(map);
     marker.bindPopup("<b>Bus Stop: </b>" + stop.name);
   });
 
+  var tempatWisata = [
+    {
+      name: "Malioboro",
+      coords: [-7.792354, 110.365785],
+    },
+    {
+      name: "Tugu Station",
+      coords: [-7.789307, 110.363005],
+    },
+    {
+      name: "Kridosono Stadium",
+      coords: [-7.782903, 110.375475],
+    },
+    {
+      name: "Keraton Yogyakarta Keraton Ngayogyakarta Hadiningrat",
+      coords: [-7.806721, 110.364839],
+    },
+    {
+      name: "Taman Sari Taman Sari",
+      coords: [-7.81058, 110.35841],
+    },
+    {
+      name: "Museum Benteng Vredeburg Vredeburg Museum",
+      coords: [-7.80054, 110.36709],
+    },
+    {
+      name: "Malioboro Malioboro Yogyakarta",
+      coords: [-7.792354, 110.365785],
+    },
+    {
+      name: "Taman Pintar Taman Pintar Yogyakarta",
+      coords: [-7.801438, 110.366778],
+    },
+    {
+      name: "Museum Sonobudoyo Museum Sonobudoyo Unit I",
+      coords: [-7.801822, 110.363849],
+    },
+    {
+      name: "Candi Prambanan Prambanan Temple",
+      coords: [-7.75202, 110.4928],
+    },
+    {
+      name: "Alun-Alun Kidul Bringin Kembar Yogyakarta",
+      coords: [-7.813336, 110.360953],
+    },
+    {
+      name: "Pasar Beringharjo Beringharjo Market",
+      coords: [-7.798888, 110.367335],
+    },
+    {
+      name: "Jogja National Museum Jogja National Museum",
+      coords: [-7.803971, 110.360091],
+    },
+    {
+      name: "De Mata Trick Eye Museum De Mata Trick Eye Museum",
+      coords: [-7.810152, 110.37655],
+    },
+    {
+      name: "Situs Warungboto Situs Warungboto",
+      coords: [-7.802642, 110.388428],
+    },
+    {
+      name: "Tugu Jogja Yogyakarta Monument",
+      coords: [-7.782885, 110.367075],
+    },
+    {
+      name: "Stasiun Jogja Yogyakarta",
+      coords: [-7.789228, 110.363091],
+    },
+    {
+      name: "Bandara Adisutjipto Adisutjipto Airport",
+      coords: [-7.788965, 110.432026],
+    },
+    {
+      name: "Ambarukmo Mall Ambarrukmo Plaza",
+      coords: [-7.782716, 110.408844],
+    },
+    {
+      name: "Jogja Night Tours Yogyakarta Night Tours - Meeting Point Klasik : Historical Walking and Food Tour",
+      coords: [-7.797068, 110.370529],
+    },
+    {
+      name: "Kebun Binatang Gembira Loka Gembira Loka Zoo",
+      coords: [-7.792917, 110.397116],
+    },
+    {
+      name: "Pakuwon Mall Pakuwon Mall Jogja",
+      coords: [-7.760072, 110.374233],
+    },
+    {
+      name: "Jogja Exotarium Mini Zoo Jogja Exotarium Mini Zoo",
+      coords: [-7.75217, 110.314962],
+    },
+    {
+      name: "Sleman City Hall Sleman City Hall",
+      coords: [-7.73373, 110.360134],
+    },
+    {
+      name: "Museum Pusat TNI AU Dirgantara Central Museum of the Air Force Dirgantara Mandala",
+      coords: [-7.787945, 110.432526],
+    },
+    {
+      name: "Mrican Boat and Fishing Spot Mrican Boat and Fishing Spot",
+      coords: [-7.779504, 110.417744],
+    },
+    {
+      name: "Sindu Kusuma Edupark Sindu Kusuma Edupark (SKE)",
+      coords: [-7.761553, 110.350289],
+    },
+    {
+      name: "Jogja City Mall Jogja City Mall",
+      coords: [-7.752974, 110.366159],
+    },
+    {
+      name: "Galleria Mall Galeria Mall",
+      coords: [-7.782399, 110.38075],
+    },
+    {
+      name: "Museum Omah Jayeng Museum Omah Jayeng ꧋ꦩꦸꦱꦺꦪꦸꦩ꧀ꦎꦩꦃꦗꦪꦺꦁ",
+      coords: [-7.802362, 110.359275],
+    },
+    {
+      name: "Museum Sandi Museum Sandi",
+      coords: [-7.782509, 110.375173],
+    },
+    {
+      name: "Museum Affandi Affandi Museum",
+      coords: [-7.782923, 110.398239],
+    },
+    {
+      name: "Museum Sejarah Jawa History Of Java Museum (HOJM)",
+      coords: [-7.834846, 110.368321],
+    },
+    {
+      name: "Stasiun Lempuyangan Lempuyangan",
+      coords: [-7.789787, 110.377669],
+    },
+    {
+      name: "Stasiun Maguwo Stasiun Maguwo",
+      coords: [-7.789865, 110.436056],
+    },
+    {
+      name: "Senyum Tamanan Senyum Tamanan",
+      coords: [-7.831691, 110.366522],
+    },
+  ];
+
+  tempatWisata.forEach(function (tempat) {
+    var yellowMarker = L.icon({
+      iconUrl:
+        "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png",
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
+      shadowSize: [41, 41],
+    });
+
+    var marker = L.marker(tempat.coords, { icon: yellowMarker }).addTo(map);
+    marker.bindPopup("<b>Tempat Wisata: </b>" + tempat.name);
+  });
+
   /*===================================================
-                        TILE LAYER               
+                        TILE LAYER
     ===================================================*/
 
   var CartoDB_DarkMatter = L.tileLayer(
@@ -523,7 +548,7 @@
   );
 
   /*===================================================
-                        LAYER CONTROL               
+                        LAYER CONTROL
     ===================================================*/
 
   var baseLayers = {
@@ -544,7 +569,7 @@
   L.control.layers(baseLayers, overlays).addTo(map);
 
   /*===================================================
-                        SEARCH BUTTON               
+                        SEARCH BUTTON
     ===================================================*/
 
   L.Control.geocoder().addTo(map);
