@@ -18,7 +18,8 @@ export var tempatWisata = [
     name: "Museum Sonobudoyo",
     coords: [-7.801822, 110.363849],
   },
-  { name: "Candi Prambanan", coords: [-7.75202, 110.4928] },
+  { name: "Candi Prambanan", 
+    coords: [-7.75202, 110.4928] },
   {
     name: "Alun-Alun Kidul",
     coords: [-7.813336, 110.360953],
