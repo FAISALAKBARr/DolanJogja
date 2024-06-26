@@ -56,7 +56,7 @@ export var tempatWisata = [
     coords: [-7.788965, 110.432026],
   },
   { 
-    name: "Ambarukmo Mall", 
+    name: "Ambarukmo Plaza Mall", 
     coords: [-7.782716, 110.408844] 
   },
   {
