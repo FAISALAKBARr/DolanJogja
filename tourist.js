@@ -39,13 +39,22 @@ export var tempatWisata = [
     name: "Situs Warungboto",
     coords: [-7.802642, 110.388428],
   },
-  { name: "Tugu Jogja", coords: [-7.782885, 110.367075] },
-  { name: "Stasiun Jogja Yogyakarta", coords: [-7.789228, 110.363091] },
+  {
+    name: "Tugu Jogja",
+    coords: [-7.782885, 110.367075],
+  },
+  {
+    name: "Stasiun Jogja Yogyakarta",
+    coords: [-7.789228, 110.363091],
+  },
   {
     name: "Bandara Adisutjipto",
     coords: [-7.788965, 110.432026],
   },
-  { name: "Ambarukmo Mall", coords: [-7.782716, 110.408844] },
+  {
+    name: "Ambarrukmo Plaza Mall",
+    coords: [-7.782716, 110.408844],
+  },
   {
     name: "Jogja Night Tour",
     coords: [-7.797068, 110.370529],
@@ -54,12 +63,18 @@ export var tempatWisata = [
     name: "Kebun Binatang Gembira Loka",
     coords: [-7.792917, 110.397116],
   },
-  { name: "Pakuwon Mall", coords: [-7.760072, 110.374233] },
+  {
+    name: "Pakuwon Mall",
+    coords: [-7.760072, 110.374233],
+  },
   {
     name: "Jogja Exotarium Mini Zoo",
     coords: [-7.75217, 110.314962],
   },
-  { name: "Sleman City Hall", coords: [-7.73373, 110.360134] },
+  {
+    name: "Sleman City Hall",
+    coords: [-7.73373, 110.360134],
+  },
   {
     name: "Museum Pusat TNI AU Dirgantara",
     coords: [-7.787945, 110.432526],
@@ -72,19 +87,40 @@ export var tempatWisata = [
     name: "Sindu Kusuma Edupark",
     coords: [-7.761553, 110.350289],
   },
-  { name: "Jogja City Mall", coords: [-7.752974, 110.366159] },
-  { name: "Galleria Mall", coords: [-7.782399, 110.38075] },
+  {
+    name: "Jogja City Mall",
+    coords: [-7.752974, 110.366159],
+  },
+  {
+    name: "Galleria Mall",
+    coords: [-7.782399, 110.38075],
+  },
   {
     name: "Museum Omah Jayeng",
     coords: [-7.802362, 110.359275],
   },
-  { name: "Museum Sandi", coords: [-7.782509, 110.375173] },
-  { name: "Museum Affandi", coords: [-7.782923, 110.398239] },
+  {
+    name: "Museum Sandi",
+    coords: [-7.782509, 110.375173],
+  },
+  {
+    name: "Museum Affandi",
+    coords: [-7.782923, 110.398239],
+  },
   {
     name: "Museum Sejarah Jawa",
     coords: [-7.834846, 110.368321],
   },
-  { name: "Stasiun Lempuyangan", coords: [-7.789787, 110.377669] },
-  { name: "Stasiun Maguwo", coords: [-7.789865, 110.436056] },
-  { name: "Senyum Tamanan", coords: [-7.831691, 110.366522] },
+  {
+    name: "Stasiun Lempuyangan",
+    coords: [-7.789787, 110.377669],
+  },
+  {
+    name: "Stasiun Maguwo",
+    coords: [-7.789865, 110.436056],
+  },
+  {
+    name: "Senyum Tamanan",
+    coords: [-7.831691, 110.366522],
+  },
 ];
