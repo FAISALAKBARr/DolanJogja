@@ -1,451 +1,451 @@
 export var transJogjaTPB = [
   {
     name: "TPB AA YKPN",
-    coords: [-7.797891, 110.373836],
+    coords: [-7.786143, 110.383474],
   },
   {
     name: "TPB AM Sangaji 1",
-    coords: [-7.786675, 110.367675],
+    coords: [-7.777333, 110.367723],
   },
   {
     name: "TPB AM Sangaji 2",
-    coords: [-7.786771, 110.367829],
+    coords: [-7.775812, 110.367982],
   },
   {
     name: "TPB AMIK BSI",
-    coords: [-7.792712, 110.402735],
+    coords: [-7.802707, 110.325191],
   },
   {
     name: "TPB Among Rogo 1",
-    coords: [-7.826683, 110.366989],
+    coords: [-7.79846, 110.384818],
   },
   {
     name: "TPB Among Rogo 2",
-    coords: [-7.826684, 110.367032],
+    coords: [-7.798493, 110.384852],
   },
   {
     name: "TPB APMD 1",
-    coords: [-7.833813, 110.378314],
+    coords: [-7.791594, 110.393248],
   },
   {
     name: "TPB APMD 2",
-    coords: [-7.833825, 110.37836],
+    coords: [-7.791068, 110.393349],
   },
   {
     name: "TPB Astra Isuzu",
-    coords: [-7.785747, 110.404263],
+    coords: [-7.834668, 110.362907],
   },
   {
     name: "TPB ATK Yogyakarta",
-    coords: [-7.781721, 110.361632],
+    coords: [-7.834409, 110.362424],
   },
   {
     name: "TPB Banguntapan 1",
-    coords: [-7.843545, 110.35756],
+    coords: [-7.807797, 110.402165],
   },
   {
     name: "TPB Bayeman 1",
-    coords: [-7.783447, 110.374198],
+    coords: [-7.800401, 110.337026],
   },
   {
     name: "TPB Bayeman 2",
-    coords: [-7.783418, 110.374247],
+    coords: [-7.800346, 110.337185],
   },
   {
     name: "TPB Bhayangkara",
-    coords: [-7.797818, 110.363824],
+    coords: [-7.799309, 110.362097],
   },
   {
     name: "TPB Binamarga",
-    coords: [-7.805004, 110.363204],
+    coords: [-7.774443, 110.430699],
   },
   {
     name: "TPB Biologi UGM",
-    coords: [-7.771561, 110.388633],
+    coords: [-7.765289, 110.376905],
   },
   {
     name: "TPB BKD DIY",
-    coords: [-7.789753, 110.36994],
+    coords: [-7.782465, 110.356194],
   },
   {
     name: "TPB BKPM DIY",
-    coords: [-7.790733, 110.366593],
+    coords: [-7.800372, 110.40235],
   },
   {
     name: "TPB Blok O",
-    coords: [-7.790121, 110.379147],
+    coords: [-7.797242, 110.409909],
   },
   {
     name: "TPB BRI Cabang Bantul",
-    coords: [-7.889087, 110.336708],
+    coords: [-7.882031, 110.332303],
   },
   {
     name: "TPB BTN",
-    coords: [-7.804624, 110.363691],
+    coords: [-7.758039, 110.398639],
   },
   {
     name: "TPB Budi Mulia 1",
-    coords: [-7.775336, 110.404022],
+    coords: [-7.742906, 110.434194],
   },
   {
     name: "TPB Budi Mulia 2",
-    coords: [-7.775317, 110.40397],
+    coords: [-7.74315, 110.434244],
   },
   {
     name: "TPB Demak Ijo 1",
-    coords: [-7.819894, 110.363106],
+    coords: [-7.776496, 110.332008],
   },
   {
     name: "TPB Demak Ijo 2",
-    coords: [-7.819902, 110.363154],
+    coords: [-7.775782, 110.332038],
   },
   {
     name: "TPB Dentes Ruko Godean",
-    coords: [-7.772792, 110.370689],
+    coords: [-7.779783, 110.34374],
   },
   {
     name: "TPB Diponegoro",
-    coords: [-7.787519, 110.372822],
+    coords: [-7.782886, 110.362552],
   },
   {
     name: "TPB Dishub DIY",
-    coords: [-7.778624, 110.380398],
+    coords: [-7.778035, 110.415079],
   },
   {
     name: "TPB Disnaker",
-    coords: [-7.799794, 110.371446],
+    coords: [-7.767794, 110.431482],
   },
   {
     name: "TPB Dongkelan 1",
-    coords: [-7.772875, 110.382434],
+    coords: [-7.830195, 110.353801],
   },
   {
     name: "TPB Dongkelan 2",
-    coords: [-7.772863, 110.382466],
+    coords: [-7.829192, 110.35399],
   },
   {
     name: "TPB Edotel Kalasan",
-    coords: [-7.781435, 110.447099],
+    coords: [-7.756735, 110.482708],
   },
   {
     name: "TPB Eks Bioskop Mataram",
-    coords: [-7.791212, 110.365138],
+    coords: [-7.79228, 110.377912],
   },
   {
     name: "TPB Eks Borobudur Plaza",
-    coords: [-7.774516, 110.377876],
+    coords: [-7.778838, 110.362029],
   },
   {
     name: "TPB Eks Stasiun KA Bantul 1",
-    coords: [-7.903831, 110.33417],
+    coords: [-7.887263, 110.329321],
   },
   {
     name: "TPB Eks Stasiun KA Bantul 2",
-    coords: [-7.903831, 110.33417],
+    coords: [-7.887393, 110.329321],
   },
   {
     name: "TPB FKG UGM 1",
-    coords: [-7.775749, 110.371491],
+    coords: [-7.771354, 110.375119],
   },
   {
     name: "TPB FKG UGM 2",
-    coords: [-7.775765, 110.371528],
+    coords: [-7.771477, 110.375301],
   },
   {
     name: "TPB Galeria Mall",
-    coords: [-7.789022, 110.366679],
+    coords: [-7.782352, 110.379319],
   },
   {
     name: "TPB Gambiran 1",
-    coords: [-7.800554, 110.364289],
+    coords: [-7.816977, 110.390963],
   },
   {
     name: "TPB Gambiran 2",
-    coords: [-7.800552, 110.364333],
+    coords: [-7.816892, 110.391045],
   },
   {
     name: "TPB Gedung Keuangan",
-    coords: [-7.797601, 110.366017],
+    coords: [-7.80184, 110.383471],
   },
   {
     name: "TPB Giant Godean",
-    coords: [-7.769928, 110.382855],
+    coords: [-7.779392, 110.34209],
   },
   {
     name: "TPB Glagahsari",
-    coords: [-7.819694, 110.354845],
+    coords: [-7.807423, 110.387956],
   },
   {
     name: "TPB Graha Asus",
-    coords: [-7.80005, 110.373161],
+    coords: [-7.76278, 110.379895],
   },
   {
     name: "TPB Grand Pacific",
-    coords: [-7.794018, 110.369337],
+    coords: [-7.765401, 110.361593],
   },
   {
     name: "TPB Grand Tjokro",
-    coords: [-7.802378, 110.364618],
+    coords: [-7.767002, 110.391731],
   },
   {
     name: "TPB Grand Zuri",
-    coords: [-7.800761, 110.36795],
+    coords: [-7.787674, 110.3665],
   },
   {
     name: "TPB Gudang SGM 1",
-    coords: [-7.802133, 110.400535],
+    coords: [-7.827155, 110.389979],
   },
   {
     name: "TPB Gudang SGM 2",
-    coords: [-7.802142, 110.400585],
+    coords: [-7.827272, 110.390043],
   },
   {
     name: "TPB Hayam Wuruk 1",
-    coords: [-7.789989, 110.376288],
+    coords: [-7.795676, 110.37263],
   },
   {
     name: "TPB Hayam Wuruk 2",
-    coords: [-7.789974, 110.376322],
+    coords: [-7.794608, 110.372758],
   },
   {
     name: "TPB Hotel Pramesthi",
-    coords: [-7.792033, 110.365565],
+    coords: [-7.82158, 110.365385],
   },
   {
     name: "TPB Hotel Utara",
-    coords: [-7.793208, 110.366138],
+    coords: [-7.780412, 110.360899],
   },
   {
     name: "TPB Hotel Vidi",
-    coords: [-7.79573, 110.36837],
+    coords: [-7.761786, 110.380208],
   },
   {
     name: "TPB Hyundai",
-    coords: [-7.791051, 110.403303],
+    coords: [-7.783518, 110.428348],
   },
   {
     name: "TPB Instiper 1",
-    coords: [-7.786801, 110.367801],
+    coords: [-7.764322, 110.423537],
   },
   {
     name: "TPB Jlagran",
-    coords: [-7.780782, 110.383616],
+    coords: [-7.789467, 110.358868],
   },
   {
     name: "TPB Jogja City Mall 1",
-    coords: [-7.788835, 110.368876],
+    coords: [-7.753296, 110.36222],
   },
   {
     name: "TPB Jogja City Mall 2",
-    coords: [-7.78882, 110.368876],
+    coords: [-7.753082, 110.362158],
   },
   {
     name: "TPB Jogokaryan 1",
-    coords: [-7.779138, 110.372368],
+    coords: [-7.823349, 110.367766],
   },
   {
     name: "TPB Jogokaryan 2",
-    coords: [-7.779124, 110.372409],
+    coords: [-7.823267, 110.367806],
   },
   {
     name: "TPB Jokteng Kulon",
-    coords: [-7.812827, 110.39456],
+    coords: [-7.813247, 110.357346],
   },
   {
     name: "TPB Jokteng Wetan",
-    coords: [-7.811301, 110.396001],
+    coords: [-7.814656, 110.367221],
   },
   {
     name: "TPB Kampus UPP 2 FIP UNY",
-    coords: [-7.789932, 110.371182],
+    coords: [-7.816599, 110.355899],
   },
   {
     name: "TPB Kantor Kalurahan Sidoarum",
-    coords: [-7.896328, 110.340523],
+    coords: [-7.77556, 110.325279],
   },
   {
     name: "TPB Kantor Kalurahan Sukoharjo 2",
-    coords: [-7.817601, 110.335166],
+    coords: [-7.703827, 110.425229],
   },
   {
     name: "TPB Kantor Kalurahan Wedomartani 1",
-    coords: [-7.74974, 110.357002],
+    coords: [-7.731493, 110.434828],
   },
   {
     name: "TPB Kantor Kalurahan Wedomartani 2",
-    coords: [-7.749735, 110.357063],
+    coords: [-7.730906, 110.434891],
   },
   {
     name: "TPB Kantor Kapanewon Bantul",
-    coords: [-7.883065, 110.336907],
+    coords: [-7.883543, 110.331834],
   },
   {
     name: "TPB Kantor Kapanewon Godean 1",
-    coords: [-7.778325, 110.383519],
+    coords: [-7.769385, 110.300143],
   },
   {
     name: "TPB Kantor Kapanewon Godean 2",
-    coords: [-7.778344, 110.383547],
+    coords: [-7.771875, 110.310305],
   },
   {
     name: "TPB Kantor Kapanewon Ngaglik 1",
-    coords: [-7.775024, 110.394027],
+    coords: [-7.724093, 110.401283],
   },
   {
     name: "TPB Kantor Kapanewon Ngaglik 2",
-    coords: [-7.775034, 110.394051],
+    coords: [-7.722028, 110.402523],
   },
   {
     name: "TPB Kantor Kesbangpol 1",
-    coords: [-7.793115, 110.363647],
+    coords: [-7.856324, 110.341402],
   },
   {
     name: "TPB Kantor Kesbangpol 2",
-    coords: [-7.79312, 110.363692],
+    coords: [-7.856744, 110.34138],
   },
   {
     name: "TPB Karang Gede 1",
-    coords: [-7.767198, 110.398834],
+    coords: [-7.874455, 110.335785],
   },
   {
     name: "TPB Karang Gede 2",
-    coords: [-7.76722, 110.398846],
+    coords: [-7.87494, 110.335734],
   },
   {
     name: "TPB Karangjati 1",
-    coords: [-7.783405, 110.379529],
+    coords: [-7.764031, 110.369243],
   },
   {
     name: "TPB Karangjati 2",
-    coords: [-7.783402, 110.379568],
+    coords: [-7.764451, 110.369153],
   },
   {
     name: "TPB Karangwaru 1",
-    coords: [-7.800413, 110.363781],
+    coords: [-7.772261, 110.361327],
   },
   {
     name: "TPB Karangwaru 2",
-    coords: [-7.80041, 110.363832],
+    coords: [-7.774265, 110.36118],
   },
   {
     name: "TPB Katamso",
-    coords: [-7.784026, 110.386872],
+    coords: [-7.802722, 110.369215],
   },
   {
     name: "TPB Kentungan",
-    coords: [-7.778901, 110.3878],
+    coords: [-7.756098, 110.384626],
   },
   {
     name: "TPB Ketandan",
-    coords: [-7.804948, 110.365481],
+    coords: [-7.810851, 110.408843],
   },
   {
     name: "TPB Ki Penjawi 1",
-    coords: [-7.743235, 110.359258],
+    coords: [-7.812466, 110.39624],
   },
   {
     name: "TPB Ki Penjawi 2",
-    coords: [-7.743243, 110.359335],
+    coords: [-7.812022, 110.396291],
   },
   {
     name: "TPB KKP Yogyakarta",
-    coords: [-7.805459, 110.36647],
+    coords: [-7.782053, 110.429895],
   },
   {
     name: "TPB Kledokan",
-    coords: [-7.781968, 110.363953],
+    coords: [-7.778325, 110.408542],
   },
   {
     name: "TPB Kosudgama",
-    coords: [-7.797604, 110.354423],
+    coords: [-7.77617, 110.37861],
   },
   {
     name: "TPB Kotabaru",
-    coords: [-7.793968, 110.368207],
+    coords: [-7.784687, 110.37135],
   },
   {
     name: "TPB KR 1",
-    coords: [-7.789938, 110.371297],
+    coords: [-7.781678, 110.450515],
   },
   {
     name: "TPB KR 2",
-    coords: [-7.789938, 110.37131],
+    coords: [-7.782515, 110.448797],
   },
   {
     name: "TPB KUA Depok 1",
-    coords: [-7.780755, 110.393017],
+    coords: [-7.755541, 110.433794],
   },
   {
     name: "TPB KUA Depok 2",
-    coords: [-7.780765, 110.39305],
+    coords: [-7.755453, 110.433875],
   },
   {
     name: "TPB Lapangan Karang 1",
-    coords: [-7.771572, 110.393091],
+    coords: [-7.822379, 110.39653],
   },
   {
     name: "TPB Lapangan Karang 2",
-    coords: [-7.77156, 110.393103],
+    coords: [-7.822387, 110.396598],
   },
   {
     name: "TPB Lapangan Kasihan 1",
-    coords: [-7.812801, 110.387091],
+    coords: [-7.825009, 110.328163],
   },
   {
     name: "TPB Lapangan Kasihan 2",
-    coords: [-7.8128, 110.387128],
+    coords: [-7.826246, 110.329012],
   },
   {
     name: "TPB Lembah UGM 1",
-    coords: [-7.772923, 110.375315],
+    coords: [-7.772332, 110.381492],
   },
   {
     name: "TPB Lembah UGM 2",
-    coords: [-7.772928, 110.375386],
+    coords: [-7.772458, 110.382283],
   },
   {
     name: "TPB Lempuyangan 1",
-    coords: [-7.792582, 110.370687],
+    coords: [-7.790441, 110.373639],
   },
   {
     name: "TPB Lempuyangan 2",
-    coords: [-7.792587, 110.370711],
+    coords: [-7.790495, 110.373541],
   },
   {
     name: "TPB Letjen Suprapto",
-    coords: [-7.804697, 110.362186],
+    coords: [-7.790841, 110.357437],
   },
   {
     name: "TPB Lowanu",
-    coords: [-7.78051, 110.369682],
+    coords: [-7.81702, 110.376028],
   },
   {
     name: "TPB Madukismo 1",
-    coords: [-7.826484, 110.360642],
+    coords: [-7.828778, 110.344337],
   },
   {
     name: "TPB Madukismo 2",
-    coords: [-7.826487, 110.360694],
+    coords: [-7.828494, 110.344363],
   },
   {
     name: "TPB Makam Gajah 1",
-    coords: [-7.801399, 110.398228],
+    coords: [-7.80195, 110.387382],
   },
   {
     name: "TPB Makam Gajah 2",
-    coords: [-7.801386, 110.398264],
+    coords: [-7.801994, 110.387399],
   },
   {
     name: "TPB Makam Sorogenen",
-    coords: [-7.801405, 110.402028],
+    coords: [-7.783457, 110.441261],
   },
   {
     name: "TPB MAN 2 Sleman 1",
-    coords: [-7.754741, 110.371158],
+    coords: [-7.750039, 110.434579],
   },
   {
     name: "TPB MAN 2 Sleman 2",
-    coords: [-7.754741, 110.371158],
+    coords: [-7.750414, 110.434589],
   },
   {
     name: "TPB Mandala Krida 1",
