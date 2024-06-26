@@ -10,7 +10,7 @@
 </div>
 <br>
 
-<br>Repo ini merupakan tempat mengerjakan tugas Kecerdasan Buatan 2024 kelompok 11 mengenai algortima searching, dimana setiap anggota mengerjakan menggunakan Tools Utama Android Studio, lalu dilakukan commit dan push setelah mengubah source code.
+<br>Repo ini merupakan tempat mengerjakan tugas Kecerdasan Buatan 2024 kelompok 11 mengenai algortima A*, dimana setiap anggota mengerjakan dengan implementasi pemrograman web sederhana, dan dengan memberdayakan git.
 
 ## Anggota Kelompok
 1. Akbar

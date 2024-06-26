@@ -28,10 +28,11 @@ export var transJogjaStops = [
     coords: [-7.7999, 110.364998],
   },
   { name: "Halte Mall Sahid J-Walk", coords: [-7.779567, 110.414697] },
-  { name: "Halte Mangkubumi", coords: [-7.7837, 110.3663] },
-  { name: "Halte Monjali 1", coords: [-7.7594, 110.3697] },
-  { name: "Halte Museum Biologi", coords: [-7.8003, 110.3734] },
-  { name: "Halte Museum Perjuangan", coords: [-7.809, 110.3673] },
+
+  { name: "Halte Mangkubumi", coords: [-7.784763, 110.366863] },
+  { name: "Halte Monjali 1", coords: [-7.750564, 110.367625] },
+  { name: "Halte Museum Biologi", coords: [-7.801629, 110.37415] },
+  { name: "Halte Museum Perjuangan", coords: [-7.815141, 110.371858] },
   { name: "Halte Ngabean", coords: [-7.803719,110.356236] },
   { name: "Halte Ngeksigondo Basen", coords: [-7.819092,110.395105] },
   { name: "Halte Nitikan", coords: [-7.824797,110.379983] },
@@ -64,5 +65,7 @@ export var transJogjaStops = [
   { name: "Halte UPN Veteran", coords: [-7.760641,110.408133] },
   { name: "Halte Urip Sumoharjo", coords: [-7.783111,110.386137] },
   { name: "Halte Vokasi UGM 1", coords: [-7.774326,110.375122] },
+
+
   { name: "Halte XT Square", coords: [-7.81623,110.385973] },
 ];
