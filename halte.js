@@ -64,5 +64,5 @@ export var transJogjaStops = [
   { name: "Halte UPN Veteran", coords: [-7.7769, 110.4098] },
   { name: "Halte Urip Sumoharjo", coords: [-7.7813, 110.3688] },
   { name: "Halte Vokasi UGM 1", coords: [-7.7668, 110.3687] },
-  { name: "Halte XT Square", coords: [-7.8129, 110.376] },
+  { name: "Halte XT Square", coords: [-7.81623,110.385973] },
 ];
