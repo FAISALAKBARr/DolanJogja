@@ -161,7 +161,13 @@ var baseLayers = {
   OpenStreetMap: osm,
 };
 
-L.control.layers(baseLayers).addTo(map);
+var overlays = {
+  "TransJogja Stops": transJogjaStopsGroup,
+  "Tempat Wisata": tempatWisataGroup,
+  "TransJogja TPB": transJogjaTPBGroup,
+};
+
+L.control.layers(baseLayers, overlays).addTo(map);
 
 /*===================================================
                           SEARCH BUTTON
