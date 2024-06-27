@@ -252,6 +252,15 @@ function searchLocation(name) {
       }
     });
   }
+  if (!foundLocation) {
+    transJogjaTPB.forEach(function (stop) {
+      if (stop.name.toLowerCase() === name.toLowerCase()) {
+        foundLocation = stop.coords;
+      }
+    });
+  }
+
+
 
   return foundLocation;
 }
