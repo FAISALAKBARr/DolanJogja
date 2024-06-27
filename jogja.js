@@ -153,112 +153,209 @@ const graphTransjogja = {
   "Museum Sandi": { 
     coords: [-7.78442734042371, 110.3722330479683], 
     neighbors: {
-      "Kridosono Stadium": 0.8,
-      "Malioboro": 1.6,
-      "Tugu Jogja": 0.8,
-      "Stasiun Jogja Yogyakarta": 1.5, 
+      "Museum Sandi": 1.5,
+      "Tugu Jogja": 1.0,
+      "Malioboro": 1.5, 
+      "Kridosono Stadium": 0.8 
     } 
-  }
+  },
+  "Museum Affandi": { 
+    coords: [-7.782585439863173, 110.39752889214583], 
+    neighbors: {} 
+  },
+  "Museum Sejarah Jawa": { 
+    coords: [-7.841182007359104, 110.36337679708396], 
+    neighbors: {} 
+  },
+  "Stasiun Lempuyangan": { 
+    coords: [-7.791014742429463, 110.37659535536245], 
+    neighbors: {} 
+  },
+  "Stasiun Maguwo": { 
+    coords: [-7.784603850602844, 110.43790163632335], 
+    neighbors: {} 
+  },
+  "Senyum Tamanan": { 
+    coords: [-7.847577389596583, 110.38950386885593], 
+    neighbors: {} 
+  },
 };
 
-// Initialize Map
-const map = L.map("map").setView([-7.797068, 110.370529], 13);
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-}).addTo(map);
+/*===================================================
+                      OSM  LAYER
+    ===================================================*/
 
-//Custom Icons
-const transJogjaIcon = L.icon({
-  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png', // Path to the icon image
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41]
+var map = L.map("map").setView([-7.797068, 110.370529], 13); // Centered on Yogyakarta
+var osm = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  attribution:
+    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+});
+osm.addTo(map);
+
+/*===================================================
+                          MARKER
+      ===================================================*/
+
+// Example marker for a TransJogja bus stop
+
+var transJogjaStopsGroup = L.layerGroup();
+var tempatWisataGroup = L.layerGroup();
+var transJogjaTPBGroup = L.layerGroup();
+
+transJogjaStops.forEach(function (stop) {
+  var redMarker = L.icon({
+    iconUrl:
+      "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png",
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41],
+  });
+
+  var marker = L.marker(stop.coords, { icon: redMarker }).bindPopup(
+    "<b>Bus Stop: </b>" + stop.name
+  );
+  transJogjaStopsGroup.addLayer(marker);
 });
 
-const tempatWisataIcon = L.icon({
-  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-gold.png', // Path to the icon image
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41]
+tempatWisata.forEach(function (tempat) {
+  var goldMarker = L.icon({
+    iconUrl:
+      "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-gold.png",
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41],
+  });
+
+  var marker = L.marker(tempat.coords, { icon: goldMarker }).bindPopup(
+    "<b>Tempat Wisata: </b>" + tempat.name
+  );
+  tempatWisataGroup.addLayer(marker);
 });
 
-const transJogjaTPBIcon = L.icon({
-  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', // Path to the icon image
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41]
+transJogjaTPB.forEach(function (stop) {
+  var greenMarker = L.icon({
+    iconUrl:
+      "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png",
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41],
+  });
+
+  var marker = L.marker(stop.coords, { icon: greenMarker }).bindPopup(
+    "<b>TPB: </b>" + stop.name
+  );
+  transJogjaTPBGroup.addLayer(marker);
 });
 
+// Add all marker groups to the map initially
+transJogjaStopsGroup.addTo(map);
+tempatWisataGroup.addTo(map);
+transJogjaTPBGroup.addTo(map);
 
-// Display Markers Based on Checkbox Selection
-const transJogjaStopsCheckbox = document.getElementById("transJogjaStopsCheckbox");
-const tempatWisataCheckbox = document.getElementById("tempatWisataCheckbox");
-const transJogjaTPBCheckbox = document.getElementById("transJogjaTPBCheckbox");
-
-function displayMarkers() {
-  map.eachLayer(function (layer) {
-    if (layer instanceof L.Marker) {
-      map.removeLayer(layer);
+// Event listeners for checkboxes
+document
+  .getElementById("transJogjaStopsCheckbox")
+  .addEventListener("change", function () {
+    if (this.checked) {
+      map.addLayer(transJogjaStopsGroup);
+    } else {
+      map.removeLayer(transJogjaStopsGroup);
     }
   });
 
-  if (transJogjaStopsCheckbox.checked) {
-    transJogjaStops.forEach((stop) => {
-      L.marker(stop.coords, { icon: transJogjaIcon }).addTo(map).bindPopup(stop.name);
-    });
-  }
-
-  if (tempatWisataCheckbox.checked) {
-    tempatWisata.forEach((tempat) => {
-      L.marker(tempat.coords, { icon: tempatWisataIcon }).addTo(map).bindPopup(tempat.name);
-    });
-  }
-
-  if (transJogjaTPBCheckbox.checked) {
-    transJogjaTPB.forEach((stop) => {
-      L.marker(stop.coords, { icon: transJogjaTPBIcon }).addTo(map).bindPopup(stop.name);
-    });
-  }
-}
-
-transJogjaStopsCheckbox.addEventListener("change", displayMarkers);
-tempatWisataCheckbox.addEventListener("change", displayMarkers);
-transJogjaTPBCheckbox.addEventListener("change", displayMarkers);
-displayMarkers();
-
-// Search Location Function
-function searchLocation(name) {
-  let foundLocation = null;
-
-  transJogjaStops.forEach(function (stop) {
-    if (stop.name.toLowerCase() === name.toLowerCase()) {
-      foundLocation = stop.coords;
+document
+  .getElementById("tempatWisataCheckbox")
+  .addEventListener("change", function () {
+    if (this.checked) {
+      map.addLayer(tempatWisataGroup);
+    } else {
+      map.removeLayer(tempatWisataGroup);
     }
   });
 
-  if (!foundLocation) {
-    tempatWisata.forEach(function (tempat) {
-      if (tempat.name.toLowerCase() === name.toLowerCase()) {
-        foundLocation = tempat.coords;
-      }
-    });
+document
+  .getElementById("transJogjaTPBCheckbox")
+  .addEventListener("change", function () {
+    if (this.checked) {
+      map.addLayer(transJogjaTPBGroup);
+    } else {
+      map.removeLayer(transJogjaTPBGroup);
+    }
+  });
+/*===================================================
+                          TILE LAYER
+      ===================================================*/
+
+var CartoDB_DarkMatter = L.tileLayer(
+  "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+  {
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    subdomains: "abcd",
+    maxZoom: 19,
   }
+);
+CartoDB_DarkMatter.addTo(map);
 
-  if (!foundLocation) {
-    transJogjaTPB.forEach(function (stop) {
-      if (stop.name.toLowerCase() === name.toLowerCase()) {
-        foundLocation = stop.coords;
-      }
-    });
+// Google Map Layer
+var googleStreets = L.tileLayer(
+  "http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}",
+  {
+    maxZoom: 20,
+    subdomains: ["mt0", "mt1", "mt2", "mt3"],
   }
+);
 
-  return foundLocation;
-}
+// Satellite Layer
+var googleSat = L.tileLayer(
+  "http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}",
+  {
+    maxZoom: 20,
+    subdomains: ["mt0", "mt1", "mt2", "mt3"],
+  }
+);
 
-// Find Closest Node Function
+var Stamen_Watercolor = L.tileLayer(
+  "https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}",
+  {
+    attribution:
+      'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    subdomains: "abcd",
+    minZoom: 1,
+    maxZoom: 16,
+    ext: "jpg",
+  }
+);
+
+/*===================================================
+                          LAYER CONTROL
+      ===================================================*/
+
+var baseLayers = {
+  Satellite: googleSat,
+  "Google Map": googleStreets,
+  "Water Color": Stamen_Watercolor,
+  OpenStreetMap: osm,
+};
+
+var overlays = {
+  "TransJogja Stops": transJogjaStopsGroup,
+  "Tempat Wisata": tempatWisataGroup,
+  "TransJogja TPB": transJogjaTPBGroup,
+};
+
+L.control.layers(baseLayers, overlays).addTo(map);
+
+/*===================================================
+                          SEARCH BUTTON
+      ===================================================*/
+
+      L.Control.geocoder().addTo(map);
+
+     // Find Closest Node Function
 function findClosestNode(coords) {
   let closestNode = null;
   let minDistance = Infinity;
@@ -364,5 +461,65 @@ document.getElementById("cariRuteBtn").addEventListener("click", function () {
     tampilkanRute(ruteTerdekat);
   } else {
     alert('Rute tidak ditemukan');
+  }
+});
+/*===================================================
+                      SEARCH FUNCTION
+===================================================*/
+
+// Mencari koordinat halte atau tempat wisata berdasarkan nama
+function searchLocation(name) {
+  let foundLocation = null;
+
+  transJogjaStops.forEach(function (stop) {
+    if (stop.name.toLowerCase() === name.toLowerCase()) {
+      foundLocation = stop.coords;
+    }
+  });
+
+  if (!foundLocation) {
+    tempatWisata.forEach(function (tempat) {
+      if (tempat.name.toLowerCase() === name.toLowerCase()) {
+        foundLocation = tempat.coords;
+      }
+    });
+  }
+  if (!foundLocation) {
+    transJogjaTPB.forEach(function (stop) {
+      if (stop.name.toLowerCase() === name.toLowerCase()) {
+        foundLocation = stop.coords;
+      }
+    });
+  }
+
+  return foundLocation;
+}
+
+// Event listener untuk tombol pencarian lokasi
+document.getElementById("cariRuteBtn").addEventListener("click", function () {
+  const startInput = document.getElementById("startInput").value;
+  const endInput = document.getElementById("endInput").value;
+
+  const startLocation = searchLocation(startInput);
+  const endLocation = searchLocation(endInput);
+
+  if (startLocation) {
+    map.setView(startLocation, 15);
+    L.popup()
+      .setLatLng(startLocation)
+      .setContent(`<b>${startInput}</b>`)
+      .openOn(map);
+  }
+
+  if (endLocation) {
+    map.setView(endLocation, 15);
+    L.popup()
+      .setLatLng(endLocation)
+      .setContent(`<b>${endInput}</b>`)
+      .openOn(map);
+  }
+
+  if (!startLocation && !endLocation) {
+    alert("Lokasi tidak ditemukan");
   }
 });
