@@ -17,14 +17,19 @@
     <link rel="icon" href="img/favicon.png" type="image/png" />
   </head>
   <body>
-    <!-- Search Bar untuk Lokasi Awal -->
-    <input type="text" id="startInput" placeholder="Masukkan Lokasi Awal" />
-
-    <!-- Search Bar untuk Lokasi Tujuan -->
-    <input type="text" id="endInput" placeholder="Masukkan Lokasi Tujuan" />
-
-    <!-- Tombol untuk Memulai Pencarian Rute -->
-    <button id="cariRuteBtn">Cari Rute</button>
+    <div id="controls">
+      <input type="text" id="startInput" placeholder="Masukkan Lokasi Awal" />
+      <input type="text" id="endInput" placeholder="Masukkan Lokasi Tujuan" />
+      <button id="cariRuteBtn">Cari Rute</button>
+      <div>
+        <input type="checkbox" id="transJogjaStopsCheckbox" checked />
+        TransJogja Stops<br />
+        <input type="checkbox" id="tempatWisataCheckbox" checked />
+        Tempat Wisata<br />
+        <input type="checkbox" id="transJogjaTPBCheckbox" checked />
+        TransJogja TPB
+      </div>
+    </div>
 
     <!-- Div untuk Menampilkan Peta -->
     <div id="map"></div>
