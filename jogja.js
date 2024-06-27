@@ -18,6 +18,10 @@ osm.addTo(map);
 
 // Example marker for a TransJogja bus stop
 
+var transJogjaStopsGroup = L.layerGroup();
+var tempatWisataGroup = L.layerGroup();
+var transJogjaTPBGroup = L.layerGroup();
+
 transJogjaStops.forEach(function (stop) {
   var redMarker = L.icon({
     iconUrl:
@@ -28,8 +32,10 @@ transJogjaStops.forEach(function (stop) {
     shadowSize: [41, 41],
   });
 
-  var marker = L.marker(stop.coords, { icon: redMarker }).addTo(map);
-  marker.bindPopup("<b>Bus Stop: </b>" + stop.name);
+  var marker = L.marker(stop.coords, { icon: redMarker }).bindPopup(
+    "<b>Bus Stop: </b>" + stop.name
+  );
+  transJogjaStopsGroup.addLayer(marker);
 });
 
 tempatWisata.forEach(function (tempat) {
@@ -42,12 +48,14 @@ tempatWisata.forEach(function (tempat) {
     shadowSize: [41, 41],
   });
 
-  var marker = L.marker(tempat.coords, { icon: goldMarker }).addTo(map);
-  marker.bindPopup("<b>Tempat Wisata: </b>" + tempat.name);
+  var marker = L.marker(tempat.coords, { icon: goldMarker }).bindPopup(
+    "<b>Tempat Wisata: </b>" + tempat.name
+  );
+  tempatWisataGroup.addLayer(marker);
 });
 
 transJogjaTPB.forEach(function (stop) {
-  var redMarker = L.icon({
+  var greenMarker = L.icon({
     iconUrl:
       "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png",
     iconSize: [25, 41],
@@ -56,10 +64,47 @@ transJogjaTPB.forEach(function (stop) {
     shadowSize: [41, 41],
   });
 
-  var marker = L.marker(stop.coords, { icon: redMarker }).addTo(map);
-  marker.bindPopup("<b>TPB : </b>" + stop.name);
+  var marker = L.marker(stop.coords, { icon: greenMarker }).bindPopup(
+    "<b>TPB: </b>" + stop.name
+  );
+  transJogjaTPBGroup.addLayer(marker);
 });
 
+// Add all marker groups to the map initially
+transJogjaStopsGroup.addTo(map);
+tempatWisataGroup.addTo(map);
+transJogjaTPBGroup.addTo(map);
+
+// Event listeners for checkboxes
+document
+  .getElementById("transJogjaStopsCheckbox")
+  .addEventListener("change", function () {
+    if (this.checked) {
+      map.addLayer(transJogjaStopsGroup);
+    } else {
+      map.removeLayer(transJogjaStopsGroup);
+    }
+  });
+
+document
+  .getElementById("tempatWisataCheckbox")
+  .addEventListener("change", function () {
+    if (this.checked) {
+      map.addLayer(tempatWisataGroup);
+    } else {
+      map.removeLayer(tempatWisataGroup);
+    }
+  });
+
+document
+  .getElementById("transJogjaTPBCheckbox")
+  .addEventListener("change", function () {
+    if (this.checked) {
+      map.addLayer(transJogjaTPBGroup);
+    } else {
+      map.removeLayer(transJogjaTPBGroup);
+    }
+  });
 /*===================================================
                           TILE LAYER
       ===================================================*/
@@ -116,15 +161,7 @@ var baseLayers = {
   OpenStreetMap: osm,
 };
 
-var overlays = {
-  "TransJogja Stops": L.layerGroup(
-    transJogjaStops.map((stop) =>
-      L.marker(stop.coords).bindPopup("<b>Bus Stop: </b>" + stop.name)
-    )
-  ).addTo(map),
-};
-
-L.control.layers(baseLayers, overlays).addTo(map);
+L.control.layers(baseLayers).addTo(map);
 
 /*===================================================
                           SEARCH BUTTON
@@ -230,7 +267,6 @@ document.getElementById("cariRuteBtn").addEventListener("click", function () {
   tampilkanRute(ruteTerdekat); // Tampilkan rute terdekat pada peta
 });
 
-
 /*===================================================
                       SEARCH FUNCTION
 ===================================================*/
@@ -260,8 +296,6 @@ function searchLocation(name) {
     });
   }
 
-
-
   return foundLocation;
 }
 
@@ -290,6 +324,6 @@ document.getElementById("cariRuteBtn").addEventListener("click", function () {
   }
 
   if (!startLocation && !endLocation) {
-    alert('Lokasi tidak ditemukan');
+    alert("Lokasi tidak ditemukan");
   }
 });
