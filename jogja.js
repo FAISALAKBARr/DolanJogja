@@ -229,3 +229,58 @@ document.getElementById("cariRuteBtn").addEventListener("click", function () {
   const ruteTerdekat = aStar(start, end, grafTransjogja); // Hitung rute terdekat menggunakan A*
   tampilkanRute(ruteTerdekat); // Tampilkan rute terdekat pada peta
 });
+
+
+/*===================================================
+                      SEARCH FUNCTION
+===================================================*/
+
+// Mencari koordinat halte atau tempat wisata berdasarkan nama
+function searchLocation(name) {
+  let foundLocation = null;
+
+  transJogjaStops.forEach(function (stop) {
+    if (stop.name.toLowerCase() === name.toLowerCase()) {
+      foundLocation = stop.coords;
+    }
+  });
+
+  if (!foundLocation) {
+    tempatWisata.forEach(function (tempat) {
+      if (tempat.name.toLowerCase() === name.toLowerCase()) {
+        foundLocation = tempat.coords;
+      }
+    });
+  }
+
+  return foundLocation;
+}
+
+// Event listener untuk tombol pencarian lokasi
+document.getElementById("cariRuteBtn").addEventListener("click", function () {
+  const startInput = document.getElementById("startInput").value;
+  const endInput = document.getElementById("endInput").value;
+
+  const startLocation = searchLocation(startInput);
+  const endLocation = searchLocation(endInput);
+
+  if (startLocation) {
+    map.setView(startLocation, 15);
+    L.popup()
+      .setLatLng(startLocation)
+      .setContent(`<b>${startInput}</b>`)
+      .openOn(map);
+  }
+
+  if (endLocation) {
+    map.setView(endLocation, 15);
+    L.popup()
+      .setLatLng(endLocation)
+      .setContent(`<b>${endInput}</b>`)
+      .openOn(map);
+  }
+
+  if (!startLocation && !endLocation) {
+    alert('Lokasi tidak ditemukan');
+  }
+});
