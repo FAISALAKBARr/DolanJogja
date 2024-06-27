@@ -3,6 +3,326 @@ import { transJogjaTPB } from "./tpb.js";
 import { tempatWisata } from "./tourist.js";
 
 const graphTransjogja = {
+  "Halte Bandara Adisutjipto": { 
+    coords: [-7.784518, 110.435734], 
+    neighbors: { 
+      "Halte Maguwo": 0.6,
+      "Halte Jayakarta": 1.6,
+      "Halte Janti Utara": 2.2,
+      "Halte Jogja Bisnis": 2.9,
+      "Halte Gedung Wanita": 3.6,
+      "Halte Urip Sumoharjo": 4.0,
+      "Halte RS Bethesda": 4.6,
+      "Halte Sudirman (Bumiputera)": 5.2,
+      "TPB Pasar Kranggan Selatan": 5.5,
+      "TPB Diponegoro": 5.7,
+      "Halte Tentara Pelajar (SMP N 14)": 5.9,
+      "Halte Samsat": 6.0,
+      "TPB Perpusda": 6.1,
+      "TPB SMP N 11": 6.4,
+      "Halte SMA N 1": 6.7
+    }
+  },
+  "Halte Maguwo": { 
+    coords: [-7.783406, 110.431023], 
+    neighbors: { 
+      "Halte Bandara Adisutjipto": 0.6,
+      "Halte Jayakarta": 1.0, 
+      "Halte Janti Utara": 1.7,
+      "Halte Jogja Bisnis": 2.4,
+      "Halte Gedung Wanita": 3.1,
+      "Halte Urip Sumoharjo": 3.5,
+      "Halte RS Bethesda": 4.1,
+      "Halte Sudirman (Bumiputera)": 4.7,
+      "TPB Pasar Kranggan Selatan": 5.0,
+      "TPB Diponegoro": 5.2,
+      "Halte Tentara Pelajar (SMP N 14)": 5.6,
+      "Halte Samsat": 5.7,
+      "TPB Perpusda": 6.0,
+      "TPB SMP N 11": 6.6,
+      "Halte SMA N 1": 7.2
+    }
+  },
+  "Halte Jayakarta": { 
+    coords: [-7.783404, 110.419409], 
+    neighbors: { 
+      "Halte Maguwo": 1.0,
+      "Halte Bandara Adisutjipto": 1.6,
+      "Halte Janti Utara": 0.7,
+      "Halte Jogja Bisnis": 1.4,
+      "Halte Gedung Wanita": 2.1,
+      "Halte Urip Sumoharjo": 2.5,
+      "Halte RS Bethesda": 3.1,
+      "Halte Sudirman (Bumiputera)": 3.7,
+      "TPB Pasar Kranggan Selatan": 4.0,
+      "TPB Diponegoro": 4.2,
+      "Halte Tentara Pelajar (SMP N 14)": 4.6,
+      "Halte Samsat": 4.7,
+      "TPB Perpusda": 5.0,
+      "TPB SMP N 11": 5.6,
+      "Halte SMA N 1": 6.2
+    }
+  },
+  "Halte Janti Utara": { 
+    coords: [-7.783211, 110.411672], 
+    neighbors: { 
+      "Halte Maguwo": 1.7,
+      "Halte Jayakarta": 0.7,
+      "Halte Bandara Adisutjipto": 2.2,
+      "Halte Jogja Bisnis": 0.7,
+      "Halte Gedung Wanita": 1.4,
+      "Halte Urip Sumoharjo": 1.8,
+      "Halte RS Bethesda": 2.4,
+      "Halte Sudirman (Bumiputera)": 3.0,
+      "TPB Pasar Kranggan Selatan": 3.3,
+      "TPB Diponegoro": 3.5,
+      "Halte Tentara Pelajar (SMP N 14)": 3.9,
+      "Halte Samsat": 4.0,
+      "TPB Perpusda": 4.3,
+      "TPB SMP N 11": 4.9,
+      "Halte SMA N 1": 5.5
+    }
+  },
+  "Halte Jogja Bisnis": { 
+    coords: [-7.783292, 110.401786], 
+    neighbors: { 
+      "Halte Maguwo": 2.4,
+      "Halte Jayakarta": 1.4,
+      "Halte Janti Utara": 0.7,
+      "Halte Bandara Adisutjipto": 2.9,
+      "Halte Gedung Wanita": 0.7,
+      "Halte Urip Sumoharjo": 1.1,
+      "Halte RS Bethesda": 1.7,
+      "Halte Sudirman (Bumiputera)": 2.3,
+      "TPB Pasar Kranggan Selatan": 2.6,
+      "TPB Diponegoro": 2.8,
+      "Halte Tentara Pelajar (SMP N 14)": 3.2,
+      "Halte Samsat": 3.3,
+      "TPB Perpusda": 3.6,
+      "TPB SMP N 11": 4.2,
+      "Halte SMA N 1": 4.8
+    }
+  },
+  "Halte Gedung Wanita": { 
+    coords: [-7.783187, 110.39271], 
+    neighbors: { 
+      "Halte Maguwo": 3.1,
+      "Halte Jayakarta": 2.1,
+      "Halte Janti Utara": 1.4,
+      "Halte Jogja Bisnis": 0.7,
+      "Halte Bandara Adisutjipto": 3.6,
+      "Halte Urip Sumoharjo": 0.4,
+      "Halte RS Bethesda": 1.0,
+      "Halte Sudirman (Bumiputera)": 1.6,
+      "TPB Pasar Kranggan Selatan": 1.9,
+      "TPB Diponegoro": 2.1,
+      "Halte Tentara Pelajar (SMP N 14)": 2.5,
+      "Halte Samsat": 2.6,
+      "TPB Perpusda": 2.9,
+      "TPB SMP N 11": 3.5,
+      "Halte SMA N 1": 4.1
+    }
+  },
+  "Halte Urip Sumoharjo": { 
+    coords: [-7.783111, 110.386137], 
+    neighbors: { 
+      "Halte Maguwo": 3.5,
+      "Halte Jayakarta": 2.5,
+      "Halte Janti Utara": 1.8,
+      "Halte Jogja Bisnis": 1.1,
+      "Halte Gedung Wanita": 0.4,
+      "Halte Bandara Adisutjipto": 4.0,
+      "Halte RS Bethesda": 0.6,
+      "Halte Sudirman (Bumiputera)": 1.2,
+      "TPB Pasar Kranggan Selatan": 1.5,
+      "TPB Diponegoro": 1.6,
+      "Halte Tentara Pelajar (SMP N 14)": 2.0,
+      "Halte Samsat": 2.1,
+      "TPB Perpusda": 2.4,
+      "TPB SMP N 11": 3.0,
+      "Halte SMA N 1": 3.6
+    }
+  },
+  "Halte RS Bethesda": { 
+    coords: [-7.783037, 110.378017], 
+    neighbors: { 
+      "Halte Maguwo": 4.1,
+      "Halte Jayakarta": 3.1,
+      "Halte Janti Utara": 2.4,
+      "Halte Jogja Bisnis": 1.7,
+      "Halte Gedung Wanita": 1.0,
+      "Halte Urip Sumoharjo": 0.6,
+      "Halte Bandara Adisutjipto": 4.6,
+      "Halte Sudirman (Bumiputera)": 0.6,
+      "TPB Pasar Kranggan Selatan": 0.9,
+      "TPB Diponegoro": 1.1,
+      "Halte Tentara Pelajar (SMP N 14)": 1.5,
+      "Halte Samsat": 1.6,
+      "TPB Perpusda": 1.9,
+      "TPB SMP N 11": 2.5,
+      "Halte SMA N 1": 3.1
+    }
+  },
+  "Halte Sudirman (Bumiputera)": { 
+    coords: [-7.782988, 110.36955], 
+    neighbors: { 
+      "Halte Maguwo": 4.7,
+      "Halte Jayakarta": 3.7,
+      "Halte Janti Utara": 3,
+      "Halte Jogja Bisnis": 2.3,
+      "Halte Gedung Wanita": 1.6,
+      "Halte Urip Sumoharjo": 1.2,
+      "Halte RS Bethesda": 0.6,
+      "Halte Bandara Adisutjipto": 5.2,
+      "TPB Pasar Kranggan Selatan": 0.3,
+      "TPB Diponegoro": 0.5,
+      "Halte Tentara Pelajar (SMP N 14)": 0.9,
+      "Halte Samsat": 1.0,
+      "TPB Perpusda": 1.3,
+      "TPB SMP N 11": 1.9,
+      "Halte SMA N 1": 2.5
+    }
+  },
+  "TPB Pasar Kranggan Selatan": { 
+    coords: [-7.782845,110.365659], 
+    neighbors: { 
+      "Halte Maguwo": 5.0,
+      "Halte Jayakarta": 4.0,
+      "Halte Janti Utara": 3.3,
+      "Halte Jogja Bisnis": 2.6,
+      "Halte Gedung Wanita": 1.9,
+      "Halte Urip Sumoharjo": 1.5,
+      "Halte RS Bethesda": 0.9,
+      "Halte Sudirman (Bumiputera)": 0.3,
+      "Halte Bandara Adisutjipto": 5.5,
+      "TPB Diponegoro": 0.2,
+      "Halte Tentara Pelajar (SMP N 14)": 0.6,
+      "Halte Samsat": 0.7,
+      "TPB Perpusda": 1.0,
+      "TPB SMP N 11": 1.6,
+      "Halte SMA N 1": 2.2
+    }
+  },
+  "TPB Diponegoro": { 
+    coords: [-7.782886, 110.362552], 
+    neighbors: { 
+      "Halte Maguwo": 5.2,
+      "Halte Jayakarta": 4.2,
+      "Halte Janti Utara": 3.5,
+      "Halte Jogja Bisnis": 2.8,
+      "Halte Gedung Wanita": 2.1,
+      "Halte Urip Sumoharjo": 1.4,
+      "Halte RS Bethesda": 1.1,
+      "Halte Sudirman (Bumiputera)": 0.5,
+      "TPB Pasar Kranggan Selatan": 0.2,
+      "Halte Bandara Adisutjipto": 5.7,
+      "Halte Tentara Pelajar (SMP N 14)": 0.4,
+      "Halte Samsat": 0.5,
+      "TPB Perpusda": 0.8,
+      "TPB SMP N 11": 1.4,
+      "Halte SMA N 1": 2.0
+    }
+  },
+  "Halte Tentara Pelajar (SMP N 14)": { 
+    coords: [-7.786576, 110.359987], 
+    neighbors: { 
+      "Halte Maguwo": 5.6,
+      "Halte Jayakarta": 4.6,
+      "Halte Janti Utara": 3.9,
+      "Halte Jogja Bisnis": 3.2,
+      "Halte Gedung Wanita": 2.5,
+      "Halte Urip Sumoharjo": 2.0,
+      "Halte RS Bethesda": 1.5,
+      "Halte Sudirman (Bumiputera)": 0.9,
+      "TPB Pasar Kranggan Selatan": 0.6,
+      "TPB Diponegoro": 0.4,
+      "Halte Bandara Adisutjipto": 5.9,
+      "Halte Samsat": 0.1,
+      "TPB Perpusda": 0.4,
+      "TPB SMP N 11": 1.0,
+      "Halte SMA N 1": 1.6
+    }
+  },
+  "Halte Samsat": { 
+    coords: [-7.787165, 110.359764], 
+    neighbors: { 
+      "Halte Maguwo": 5.7,
+      "Halte Jayakarta": 4.7,
+      "Halte Janti Utara": 4.0,
+      "Halte Jogja Bisnis": 3.3,
+      "Halte Gedung Wanita": 2.6,
+      "Halte Urip Sumoharjo": 2.1,
+      "Halte RS Bethesda": 1.6,
+      "Halte Sudirman (Bumiputera)": 1.0,
+      "TPB Pasar Kranggan Selatan": 0.7,
+      "TPB Diponegoro": 0.5,
+      "Halte Tentara Pelajar (SMP N 14)": 0.1,
+      "Halte Bandara Adisutjipto": 6.0,
+      "TPB Perpusda": 0.3,
+      "TPB SMP N 11": 0.9,
+      "Halte SMA N 1": 1.5
+    }
+  },
+  "TPB Perpusda": { 
+    coords: [-7.788092,110.357905], 
+    neighbors: { 
+      "Halte Maguwo": 6.0,
+      "Halte Jayakarta": 5.0,
+      "Halte Janti Utara": 4.3,
+      "Halte Jogja Bisnis": 3.6,
+      "Halte Gedung Wanita": 2.9,
+      "Halte Urip Sumoharjo": 2.4,
+      "Halte RS Bethesda": 1.9,
+      "Halte Sudirman (Bumiputera)": 1.3,
+      "TPB Pasar Kranggan Selatan": 1.0,
+      "TPB Diponegoro": 0.8,
+      "Halte Tentara Pelajar (SMP N 14)": 0.4,
+      "Halte Samsat": 0.3,
+      "Halte Bandara Adisutjipto": 6.1,
+      "TPB SMP N 11": 0.6,
+      "Halte SMA N 1": 1.2
+    }
+  },
+  "TPB SMP N 11": { 
+    coords: [-7.792973,110.353401], 
+    neighbors: { 
+      "Halte Maguwo": 6.6,
+      "Halte Jayakarta": 5.6,
+      "Halte Janti Utara": 4.9,
+      "Halte Jogja Bisnis": 4.2,
+      "Halte Gedung Wanita": 3.5,
+      "Halte Urip Sumoharjo": 3.0,
+      "Halte RS Bethesda": 2.5,
+      "Halte Sudirman (Bumiputera)": 1.9,
+      "TPB Pasar Kranggan Selatan": 1.6,
+      "TPB Diponegoro": 1.4,
+      "Halte Tentara Pelajar (SMP N 14)": 1.0,
+      "Halte Samsat": 0.9,
+      "TPB Perpusda": 0.6,
+      "Halte Bandara Adisutjipto": 6.4,
+      "Halte SMA N 1": 0.6
+    }
+  },
+  "Halte SMA N 1": { 
+    coords: [-7.799353, 110.352117], 
+    neighbors: { 
+      "Halte Maguwo": 7.2,
+      "Halte Jayakarta": 6.2,
+      "Halte Janti Utara": 5.5,
+      "Halte Jogja Bisnis": 4.8,
+      "Halte Gedung Wanita": 4.1,
+      "Halte Urip Sumoharjo": 3.6,
+      "Halte RS Bethesda": 3.1,
+      "Halte Sudirman (Bumiputera)": 2.5,
+      "TPB Pasar Kranggan Selatan": 2.2,
+      "TPB Diponegoro": 2.0,
+      "Halte Tentara Pelajar (SMP N 14)": 1.6,
+      "Halte Samsat": 1.5,
+      "TPB Perpusda": 1.2,
+      "TPB SMP N 11": 0.6,
+      "Halte Bandara Adisutjipto": 6.7
+    }
+  },
   "Kridosono Stadium": { 
     coords: [-7.787617833616197, 110.3740941506823], 
     neighbors: { 
@@ -100,7 +420,9 @@ const graphTransjogja = {
   },
   "Bandara Adisutjipto": { 
     coords: [-7.78884719369178, 110.43075259671775], 
-    neighbors: {} 
+    neighbors: {
+      
+    } 
   },
   "Ambarrukmo Plaza Mall": { 
     coords: [-7.782386234764126, 110.40112775662398], 
